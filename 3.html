@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="testapp">
+<head>
+    <title>Test Social Meta (title)</title>
+
+    <!-- no og:url, facebook, twitter, linkedin will just link to this page -->
+    <!-- however, when pasting the link into twitter, t will not beautify the link -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="some awesome product" />
+    <meta property="og:description" content="(description of this awesome product)" />
+    <meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
+    <script src="node_modules/angular-socialshare/dist/angular-socialshare.min.js"></script>
+
+    
+</head>
+<body ng-controller="MainController">
+    <p>Hello, {{name}}</p>
+    <article>
+        <h1>This is the title of the article</h1>
+        <section>
+            <p>This is the content of the article</p>
+        </section>
+
+        <section>
+            <a href="#"
+                socialshare
+                socialshare-provider="facebook"
+                socialshare-url="1.html">
+                Share me
+            </a>
+            <a href="#"
+                socialshare
+                socialshare-provider="twitter"
+                socialshare-url="1.html">
+                Share me via Twitter
+            </a><a href="#"
+                socialshare
+                socialshare-provider="linkedin"
+                socialshare-url="1.html">
+                Share me via LinkedIn
+            </a>
+        </section>
+    </article>
+
+
+
+    <script>
+        angular.module('testapp', ['720kb.socialshare'])
+        .controller('MainController', ['$scope', function ($scope) {
+            $scope.name = 'Shaopeng';
+        }]);
+
+    </script>
+
+</body>
+</html>
